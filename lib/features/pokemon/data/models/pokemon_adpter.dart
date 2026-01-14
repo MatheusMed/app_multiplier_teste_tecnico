@@ -12,4 +12,20 @@ extension PokemonAdpter on PokemonEntity {
       peso: json['weight'],
     );
   }
+
+  static Map<String, dynamic> toMap(PokemonEntity entity) {
+    return {
+      'name': entity.nome,
+      'sprites': {'front_default': entity.imagem},
+      'types': entity.tipos
+          .map(
+            (e) => {
+              'type': {'name': e},
+            },
+          )
+          .toList(),
+      'height': entity.altura,
+      'weight': entity.peso,
+    };
+  }
 }
