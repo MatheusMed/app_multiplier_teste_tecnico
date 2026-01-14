@@ -7,8 +7,8 @@ class GetListPokemonRepositoryImp implements IGetListPokemonRepository {
   GetListPokemonRepositoryImp(this._datasource);
   @override
   Future<List<PokemonEntity>> call({
-    required String offset,
-    required String limit,
+    required int offset,
+    required int limit,
   }) async {
     return await _datasource(limit: limit, offset: offset);
   }

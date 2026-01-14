@@ -1,6 +1,6 @@
+import 'package:app_multiplier_teste_tecnico/features/core/network/http/i_http_service.dart';
 import 'package:app_multiplier_teste_tecnico/features/core/network/http/response/http_response_mapper.dart';
 import 'package:app_multiplier_teste_tecnico/features/core/network/http/response/http_response_return.dart';
-import 'package:app_multiplier_teste_tecnico/features/core/network/http/i_http_service.dart';
 import 'package:dio/dio.dart';
 
 class HttpServiceImp implements IHttpService {

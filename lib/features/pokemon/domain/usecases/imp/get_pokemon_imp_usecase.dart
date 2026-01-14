@@ -7,8 +7,8 @@ class GetPokemonImpUsecase implements IGetListPokemonUsecase {
   GetPokemonImpUsecase(this._repository);
   @override
   Future<List<PokemonEntity>> call({
-    required String offset,
-    required String limit,
+    required int offset,
+    required int limit,
   }) async {
     return await _repository(offset: offset, limit: limit);
   }

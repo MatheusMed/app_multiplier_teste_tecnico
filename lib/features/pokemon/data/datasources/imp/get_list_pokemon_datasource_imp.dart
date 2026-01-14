@@ -9,8 +9,8 @@ class GetListPokemonDatasourceImp implements IGetListPokemonDatasource {
   GetListPokemonDatasourceImp(this._httpService);
   @override
   Future<List<PokemonEntity>> call({
-    required String offset,
-    required String limit,
+    required int offset,
+    required int limit,
   }) async {
     try {
       final response = await _httpService.get(
