@@ -1,5 +1,6 @@
 import 'package:app_multiplier_teste_tecnico/features/pokemon/domain/entities/pokemon_entity.dart';
 import 'package:app_multiplier_teste_tecnico/features/pokemon/presentation/widgets/info_card_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class PokemonDetailPage extends StatelessWidget {
@@ -20,10 +21,14 @@ class PokemonDetailPage extends StatelessWidget {
         children: [
           Hero(
             tag: pokemon.nome,
-            child: Image.network(
-              pokemon.imagem,
-              height: 180,
-              fit: BoxFit.contain,
+            child: CachedNetworkImage(
+              imageUrl: pokemon.imagem,
+              fit: BoxFit.cover,
+              placeholder: (context, url) => const Center(
+                child: CircularProgressIndicator(strokeWidth: 2),
+              ),
+              errorWidget: (context, url, error) =>
+                  const Icon(Icons.image_not_supported_outlined),
             ),
           ),
           const SizedBox(height: 16),
