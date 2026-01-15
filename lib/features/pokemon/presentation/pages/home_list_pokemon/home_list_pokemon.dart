@@ -30,6 +30,7 @@ class _HomeListPokemonState extends State<HomeListPokemon> {
   @override
   void dispose() {
     _scrollController.dispose();
+    _controller.dispose();
     super.dispose();
   }
 

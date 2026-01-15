@@ -35,7 +35,7 @@ class HomeBloc {
         final cached = _localStorage.read<List<dynamic>>(_cacheKey) ?? [];
 
         if (cached.isEmpty) {
-          state.value = FailureState('No internet and no cached data');
+          state.value = FailureState('Sem internet e sem dados salvos');
         } else {
           _pokemons
             ..clear()
@@ -71,5 +71,9 @@ class HomeBloc {
     } finally {
       _isFetching = false;
     }
+  }
+
+  void dispose() {
+    state.dispose();
   }
 }
