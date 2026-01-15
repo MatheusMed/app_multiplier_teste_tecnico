@@ -34,14 +34,17 @@ class PokemonCardWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CachedNetworkImage(
-              imageUrl: pokemon.imagem,
-              fit: BoxFit.cover,
-              placeholder: (context, url) => const Center(
-                child: CircularProgressIndicator(strokeWidth: 2),
+            Hero(
+              tag: pokemon.nome,
+              child: CachedNetworkImage(
+                imageUrl: pokemon.imagem,
+                fit: BoxFit.cover,
+                placeholder: (context, url) => const Center(
+                  child: CircularProgressIndicator(strokeWidth: 2),
+                ),
+                errorWidget: (context, url, error) =>
+                    const Icon(Icons.image_not_supported_outlined),
               ),
-              errorWidget: (context, url, error) =>
-                  const Icon(Icons.image_not_supported_outlined),
             ),
             const SizedBox(height: 12),
             Text(
